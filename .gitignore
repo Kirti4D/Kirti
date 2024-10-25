@@ -1,0 +1,49 @@
+def hitung_momentum(m,v):
+    p = m * v
+    return p
+
+def hitung_kecepatan(p,m):
+    if m == 0:
+        return None
+    
+    v = p / m
+    return v
+
+def hitung_massa(p,v):
+    m = p / v
+    return m
+
+def main():
+    print("Program untuk menghitung Momentum")
+    print("1. Hitung Momentum (p)")
+    print("2. Hitung kecepatan (v)")
+    print("3. Hitung massa (m)")
+
+    pilihan = input("Masukkan pilihan 1/2/3:")
+
+    if pilihan == "1":
+        m = float(input("Masukkan nilai massa dalam kg:"))
+        v = float(input("Masukkan nilai kecepatan dalam m/s:"))
+        p = hitung_momentum(m,v)
+        print(f"Momentumnya sebesar : {p: .2f} kg*m/s")
+
+    elif pilihan == "2":
+        p = float(input("Masukkan nilai momentum dalam kg*m/s:"))
+        m = float(input("Masukkan nilai massa dalam kg:"))
+        v = hitung_kecepatan(p,m)
+        if m is None: 
+            print ("Massa tidak boleh nol")
+        else:
+            print(f"Kecepatannya sebesar: {v: .2f} m/s")
+    
+    elif pilihan == "3":
+        p = float(input("Masukkan nilai momentum dalam kg*m/s:"))
+        v = float(input("Masukkan nilai kecepatan dalam m/s:"))
+        m = hitung_massa(p,v)
+        print(f"Massa sebesar: {m: .2f} kg")
+
+    else:
+        print("Pilihan tidak sesuai, silakan pilih 1/2/3")
+
+if __name__ == "__main__":
+    main()
